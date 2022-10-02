@@ -35,7 +35,7 @@ public class Message {
 
     @Column(name = "status")
     @Enumerated
-    public Status status;
+    public Status status = Status.NEW;
 
     @Column(name = "shipping_status")
     public String shippingStatus;

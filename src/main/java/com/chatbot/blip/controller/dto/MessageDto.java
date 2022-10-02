@@ -1,5 +1,6 @@
 package com.chatbot.blip.controller.dto;
 
+import com.chatbot.blip.model.Message;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,6 +31,16 @@ public class MessageDto {
 
     @JsonProperty("content")
     private String content;
+
+    public Message convertToMessage(MessageDto messageDto) {
+        Message message = new Message();
+        message.setIdMessageTakeBlip(messageDto.getId());
+        message.setOrigin(messageDto.getFrom());
+        message.setReceiver(messageDto.getTo());
+        message.setContentType(messageDto.getType());
+        message.setContent(messageDto.getContent());
+        return message;
+    }
 
     @Override
     public String toString() {

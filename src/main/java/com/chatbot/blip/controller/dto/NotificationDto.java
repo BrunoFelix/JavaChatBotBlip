@@ -26,10 +26,15 @@ public class NotificationDto {
     private String to;
 
     @JsonProperty("event")
-    private String event;
+    private Event event;
 
     @JsonProperty("reason")
     private String reason;
+
+    public enum Event {
+        RECEIVED,
+        CONSUMED
+    }
 
     @Override
     public String toString() {

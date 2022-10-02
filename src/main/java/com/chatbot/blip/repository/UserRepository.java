@@ -1,6 +1,11 @@
 package com.chatbot.blip.repository;
 
+import com.chatbot.blip.model.User;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<UserRepository, String> {
+import java.util.Optional;
+
+public interface UserRepository extends CrudRepository<User, String> {
+
+    Optional<User> findByIdTakeBlip(String idTakeBlip);
 }
